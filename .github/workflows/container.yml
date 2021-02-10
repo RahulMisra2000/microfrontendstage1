@@ -22,7 +22,11 @@ jobs:
       - run: npm run build                                                                #   "
 
       - uses: chrislennon/action-aws-cli@v1.1                                             # get hold of the AWS CLI
+        
+        
+                                                                                          # $ {{ }} these are env variables we need to setup in github
+                                                                                          # 
       - run: aws s3 sync dist s3://${{ secrets.AWS_S3_BUCKET_NAME }}/container/latest     # sync the contents of the dist folder to the S3 bucket
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}                             # AWS authentication credentials
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}                             # AWS authentication credentials needed to access the S3 bucket
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}                     #      "
