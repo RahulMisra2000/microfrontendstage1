@@ -17,6 +17,8 @@ const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
 
   ReactDOM.render(<App history={history} />, el);
 
+  // The Container app receives this object and calls the method in it whenever the user clicks on navigation inside the Container app.
+  // This is how the Marketing app (the code in here) is able to keep its history object in sync with the history object of the Container app.
   return {
     onParentNavigate({ pathname: nextPathname }) {
       const { pathname } = history.location;
