@@ -4,6 +4,8 @@ import { useHistory } from 'react-router-dom';
 
 export default () => {
   const ref = useRef(null);
+  
+  // This gives us a copy of the history object where the code is running, which is the Container in this case.
   const history = useHistory();
 
   useEffect(() => {
